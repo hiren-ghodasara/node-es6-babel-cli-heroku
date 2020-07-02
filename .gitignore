@@ -1,0 +1,9 @@
+## build folder
+dist
+dump
+build
+package-lock.json
+
+# Dependency directories
+node_modules/
+jspm_packages/
