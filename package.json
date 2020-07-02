@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "cross-env NODE_ENV=production NPM_CONFIG_PRODUCTION=false npm-run-all build server:prod",
+    "dev": "cross-env NODE_ENV=development npm-run-all server:dev",
     "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/index.js",
+    "server:dev": "babel-node src/index.js",
+    "server:prod": "node ./build/index.js",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s"
   },
@@ -13,7 +16,9 @@
   "license": "ISC",
   "dependencies": {
     "babel-preset-env": "^1.7.0",
-    "express": "^4.17.1"
+    "cross-env": "^7.0.2",
+    "express": "^4.17.1",
+    "npm-run-all": "^4.1.5"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0"
